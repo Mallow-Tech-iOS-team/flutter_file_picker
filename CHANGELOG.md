@@ -1,3 +1,66 @@
+## 4.2.4
+
+##### iOS
+Improves error handling when device can't fetch files due to low storage space ([#885](https://github.com/miguelpruivo/flutter_file_picker/issues/885)).
+
+## 4.2.3
+
+##### iOS
+Fixed an issue that was creating a crash when media in PHPickerViewController in iOs was tapped several times very fast, we check that _result is not empty to avoid the crash. No Github issue created.
+
+## 4.2.2+1
+
+##### Android
+Reverts Android `READ_EXTERNAL_STORAGE` permission removal.
+
+## 4.2.2
+
+##### Android
+Removes `<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>` permission from the platform implementation Manifest since may not be required for some applications and devs can manually add it to their own application if needed ([#864](https://github.com/miguelpruivo/flutter_file_picker/issues/864)).
+
+## 4.2.1
+
+##### Android
+Fixes an issue where `onFileLoading` would be called while picking directories ([#863](https://github.com/miguelpruivo/flutter_file_picker/issues/863)).
+
+## 4.2.0
+
+Adds the `identifier` property to the `PlatformFile` which references the original file identifier for both iOS & Android ([#804](https://github.com/miguelpruivo/flutter_file_picker/issues/804)).
+
+## 4.1.6
+##### Desktop (macOS)
+Fixes the issue that users could not pick `.app` files on macOS because FilePicker tried to determine the file size of `.app` files. On macOS, these special kind of files are actually Unix directories in a special format ([read more on StackExchange](https://apple.stackexchange.com/a/112213)). Now, if a file is picked, which is actually a directory, then the file size will be zero. ([#856](https://github.com/miguelpruivo/flutter_file_picker/issues/856))
+
+## 4.1.5
+##### Web
+- Fixes an issue that would prevent the call to return when both `withReadStream` and `allowMultiple` were set. ([#843](https://github.com/miguelpruivo/flutter_file_picker/issues/843)).
+- Addresses an issue in the example app.
+
+## 4.1.4
+##### Android
+Addresses an issue where multiple media files couldn't be picked in some 3rd party explorers ([#846](https://github.com/miguelpruivo/flutter_file_picker/issues/846)). Thank you @innim98.
+
+## 4.1.3
+##### iOS
+Fixes an issue where Live Photos were being picked as `.pvt` packages (since iOS 15). From now on, if `allowCompression` is set to `true`, Live Photos will automatically be converted to static JPEG pictures. ([#835](https://github.com/miguelpruivo/flutter_file_picker/issues/835)) 
+
+## 4.1.2
+##### Desktop (Linux)
+Fixes the issue that on Linux the file type filter `FileType.any` did not allow the selection of files without file extension. ([#836](https://github.com/miguelpruivo/flutter_file_picker/issues/836))
+
+## 4.1.1
+##### iOS
+Fixes an issue that would result in picker being dismissed by pulling down the modal sheet without an event. ([#828](https://github.com/miguelpruivo/flutter_file_picker/issues/828))
+
+##### Web
+Addresses an issue when comparing files on Web would result in an error due to `path` not being accessible. ([#822](https://github.com/miguelpruivo/flutter_file_picker/issues/822)) 
+
+## 4.1.0
+Extends API by new function `saveFiles()` for opening a save-file dialog as requested in [#799](https://github.com/miguelpruivo/flutter_file_picker/issues/799). This feature is only supported on desktop platforms (Linux, macOS, and Windows).
+
+## 4.0.3
+Makes the `path` getter nullable to match with its property ([#823](https://github.com/miguelpruivo/flutter_file_picker/issues/823)).
+
 ## 4.0.2
 ##### Desktop (Windows)
 Fixes custom extension filter. Thank you @jgoyvaerts.
